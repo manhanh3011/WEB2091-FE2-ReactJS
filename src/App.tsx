@@ -1,13 +1,15 @@
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
-import {Button, Layout, Form, Input} from "antd";
+import { Link, Route, Routes, Navigate } from "react-router-dom";
+import { Layout, Form, Input} from "antd";
+import Dashboard from "./layout/Dashboard";
+import ListUser from "./page/ListUser";
 
-const {Header, Content, Footer} = Layout;
+
 function App() {
 
-  const onFinish = (values: any) => {
-    console.log(values);    
-  }
+  // const onFinish = (values: any) => {
+  //   console.log(values);    
+  // }
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -47,7 +49,7 @@ function App() {
         <Button type="dashed">Click Me</Button>
         <Button type="link">Click Me</Button>
         <Button type="text">Click Me</Button> */}
-        <Layout>
+        {/* <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
             <Form onFinish={onFinish}>
@@ -62,9 +64,14 @@ function App() {
             </Form>
           </Content>
           <Footer>Footer</Footer>
-        </Layout>
+        </Layout> */}
+        
       </div>
-
+      <Routes>
+        <Route path="/" element={<Dashboard/>} />
+        <Route path="/listUser" element={<ListUser/>} />
+        
+      </Routes>
       <Toaster />
     </>
   );
