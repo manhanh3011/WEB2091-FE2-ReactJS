@@ -36,7 +36,7 @@ function Dashboard() {
               <Form.Item label="Password" name={"password"}>
                 <Input placeholder="Nhập mật khẩu"/>
               </Form.Item>
-              <Button htmlType="submit" type="primary">Submit</Button>
+              <Button className="text-center" htmlType="submit" type="primary">Submit</Button>
             </Form>
           </Content>
           <Footer style={{ textAlign: 'center' }}>

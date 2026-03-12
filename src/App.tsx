@@ -1,6 +1,5 @@
 import { Toaster } from "react-hot-toast";
-import { Link, Route, Routes, Navigate } from "react-router-dom";
-import { Layout, Form, Input} from "antd";
+import { Link, Route, Routes } from "react-router-dom";
 import Dashboard from "./layout/Dashboard";
 import ListUser from "./page/ListUser";
 
@@ -19,10 +18,10 @@ function App() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="#" className="hover:text-gray-200">
+            <Link to="/" className="hover:text-gray-200">
               Trang chủ
             </Link>
-            <Link to="/list" className="hover:text-gray-200">
+            <Link to="/listUser" className="hover:text-gray-200">
               Danh sách
             </Link>
             <Link to="/add" className="hover:text-gray-200">
@@ -65,13 +64,13 @@ function App() {
           </Content>
           <Footer>Footer</Footer>
         </Layout> */}
-        
+        <Routes>
+          <Route path="/" element={<Dashboard/>} />
+          <Route path="/listUser" element={<ListUser/>} />
+          
+        </Routes>
       </div>
-      <Routes>
-        <Route path="/" element={<Dashboard/>} />
-        <Route path="/listUser" element={<ListUser/>} />
-        
-      </Routes>
+      
       <Toaster />
     </>
   );
