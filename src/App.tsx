@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 import { Link, Route, Routes } from "react-router-dom";
 import Dashboard from "./layout/Dashboard";
 import ListUser from "./page/ListUser";
+import Lab2 from "./page/Lab2";
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
           
         </Routes>
       </div>
-      
+      <Lab2/>
       <Toaster />
     </>
   );
