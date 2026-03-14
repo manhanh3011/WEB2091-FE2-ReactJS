@@ -1,6 +1,8 @@
 import { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Lab1 from "./page/Lab1";
+import Lab2 from "./page/Lab2";
+import Lab3 from "./page/Lab3";
 
 
 
@@ -64,9 +66,9 @@ function App() {
           </Content>
           <Footer>Footer</Footer>
         </Layout> */}
-        
+        <Lab3/>
       </div>
-      <Lab1/>
+      {/* <Lab1/> */}
       {/* <Lab2/> */}
       <Toaster />
     </>
