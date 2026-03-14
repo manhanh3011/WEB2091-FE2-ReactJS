@@ -1,8 +1,7 @@
 import { Toaster } from "react-hot-toast";
-import { Link, Route, Routes } from "react-router-dom";
-import Dashboard from "./layout/Dashboard";
-import ListUser from "./page/ListUser";
-import Lab2 from "./page/Lab2";
+import { Link } from "react-router-dom";
+import Lab1 from "./page/Lab1";
+
 
 
 function App() {
@@ -65,13 +64,10 @@ function App() {
           </Content>
           <Footer>Footer</Footer>
         </Layout> */}
-        <Routes>
-          <Route path="/" element={<Dashboard/>} />
-          <Route path="/listUser" element={<ListUser/>} />
-          
-        </Routes>
+        
       </div>
-      <Lab2/>
+      <Lab1/>
+      {/* <Lab2/> */}
       <Toaster />
     </>
   );
