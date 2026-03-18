@@ -28,6 +28,12 @@
       "description": "mô tả truyện cũ",
       "active": true,
       "id": 4
+    },
+    {
+      "title": "Truyện vừa thêm",
+      "description": "mô tả truyện vừa thêm",
+      "active": true,
+      "id": 5
     }
   ],
   "users": []
