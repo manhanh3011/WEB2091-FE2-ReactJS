@@ -4,6 +4,7 @@ import Lab1 from "./page/Lab1";
 import Lab2 from "./page/Lab2";
 import Lab3 from "./page/Lab3";
 import StoryForm from "./page/Lab4";
+import StoryList from "./page/Lab5";
 
 
 
@@ -68,7 +69,8 @@ function App() {
           <Footer>Footer</Footer>
         </Layout> */}
         {/* <Lab3/> */}
-        <StoryForm/>
+        {/* <StoryForm/> */}
+        <StoryList />
       </div>
       {/* <Lab1/> */}
       {/* <Lab2/> */}
