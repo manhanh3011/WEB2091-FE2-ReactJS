@@ -3,8 +3,10 @@ import { Button, Image, Popconfirm, Table } from 'antd';
 import axios from 'axios';
 import type { Story } from '../interface/Story';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function StoryList() {
+    const nav = useNavigate();
 
     const {data, isLoading} = useQuery({
         queryKey: ["getAllStories"],
@@ -37,16 +39,18 @@ function StoryList() {
         {
             title: "Hành động",
             render: (_: Story, record: Story) => (
-                console.log(record),               
-                <Popconfirm
-                    title="Xoá truyện"
-                    description="Bạn chắc chắn muốn xoá không?"
-                    okText="Có"
-                    cancelText="Không"
-                    onConfirm={() => mutate(record.id)}
-                >
-                    <Button danger>Xoá</Button>
-                </Popconfirm>
+                <div>
+                    <Popconfirm
+                        title="Xoá truyện"
+                        description="Bạn chắc chắn muốn xoá không?"
+                        okText="Có"
+                        cancelText="Không"
+                        onConfirm={() => mutate(record.id)}
+                    >
+                        <Button danger>Xoá</Button>                   
+                    </Popconfirm>
+                    <Button type='primary' onClick={() => nav(`/edit/${record.id }`)}>Sửa</Button>               
+                </div>
             )
         }
     ];

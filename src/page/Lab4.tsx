@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query'
 import { Button, Checkbox, Form, Input, Select } from 'antd'
 import axios from "axios"
 import toast from 'react-hot-toast';
-import type { Category } from '../interface/Story';
+import type { Category, Story } from '../interface/Story';
 import { useEffect, useState } from 'react';
 
 
@@ -17,6 +17,18 @@ function StoryForm() {
         },
         onError: () => {
             toast.error("Thêm danh mục thất bại");
+        },
+    });
+
+    const mutation = useMutation({
+        mutationFn: async (values: Story) => {
+            await axios.post(`http://localhost:3000/stories`, values)
+        },
+        onSuccess: () => {
+            toast.success("Thêm truyện thành công");
+        },
+        onError: () => {
+            toast.error("Thêm truyện thất bại");
         },
     });
 
@@ -41,6 +53,10 @@ function StoryForm() {
 
     const onFinish = (values: Category) => {
         mutate(values);       
+    };
+
+    const onFinishAdd = (values: Story) => {
+        mutation.mutate(values);
     }
   return (
     <div>
@@ -69,8 +85,8 @@ function StoryForm() {
         </div>
         {/* form thêm truyện */}
         <div>
-            <h1 className='text-3xl font-bold'>Form thêm truyện</h1>
-            <Form layout="vertical">
+            <h1 className='text-3xl font-bold' >Form thêm truyện</h1>
+            <Form layout="vertical" onFinish={onFinishAdd}>
 
                 <Form.Item
                     label="Title"

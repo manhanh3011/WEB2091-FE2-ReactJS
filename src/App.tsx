@@ -1,18 +1,16 @@
 import { Toaster } from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Lab1 from "./page/Lab1";
 import Lab2 from "./page/Lab2";
 import Lab3 from "./page/Lab3";
 import StoryForm from "./page/Lab4";
 import StoryList from "./page/Lab5";
+import EditForm from "./page/Lab6";
 
 
 
 function App() {
 
-  // const onFinish = (values: any) => {
-  //   console.log(values);    
-  // }
   return (
     <>
       <nav className="bg-blue-600 text-white shadow">
@@ -44,14 +42,14 @@ function App() {
         </div>
       </nav>
 
+      
+
       {/* MAIN CONTENT */}
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
+        <Routes>
+          <Route path="/edit/:id" element={<EditForm/>}></Route>
+        </Routes>
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
-        {/* <Button type="primary">Click Me</Button>
-        <Button type="default">Click Me</Button>
-        <Button type="dashed">Click Me</Button>
-        <Button type="link">Click Me</Button>
-        <Button type="text">Click Me</Button> */}
         {/* <Layout>
           <Header style={{ color: "white" }}>Header</Header>
           <Content style={{ padding: 20 }}>
@@ -68,12 +66,13 @@ function App() {
           </Content>
           <Footer>Footer</Footer>
         </Layout> */}
+        {/* <Lab1/> */}
+        {/* <Lab2/> */}
         {/* <Lab3/> */}
         {/* <StoryForm/> */}
+        {/* <EditForm /> */}
         <StoryList />
       </div>
-      {/* <Lab1/> */}
-      {/* <Lab2/> */}
       <Toaster />
     </>
   );
