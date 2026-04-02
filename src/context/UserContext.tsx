@@ -1,16 +1,25 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
+
+type User = {
+    name: string;
+    avatar: string;
+}
 
 type UserContextType = {
-    username: string;
+    user: User | null;
+    setUser: (user: User | null ) => void;
 }
 
 export const UserContext = createContext<UserContextType | null>(null);
 
 export const UserProvider = ({children}: {children: any}) => {
-    const username = "anhtmph58125";
+    const [user, setUser] = useState<User | null>({
+        name: "anhtm",
+        avatar: "avatar.jpg",
+    });
 
     return (
-        <UserContext.Provider value={{username}} >
+        <UserContext.Provider value={{user, setUser}} >
             {children}
         </UserContext.Provider>
     )
