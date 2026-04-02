@@ -44,5 +44,36 @@
       "id": 5
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$0APtMnf299hT7V0mJ1rtfeaEUUxkigTsHYYOkEi.w1vLk3DIVV4Cy",
+      "username": "admin",
+      "id": 1
+    },
+    {
+      "email": "tranmanhanh3011@gmail.com",
+      "password": "$2a$10$LqhJr5ihBlf8Sa3StxLZNevFTTeu9lSBXPTgofsIj4j8JRIVayp7i",
+      "username": "tranmanhanh",
+      "id": 2
+    },
+    {
+      "email": "admin01@gmail.com",
+      "password": "$2a$10$qvJW/lBdkRnuU2KbW5u8kuRmq0W80uKCm8GBB5M4W8K24RFoolz6q",
+      "username": "admin",
+      "id": 3
+    },
+    {
+      "email": "admin02@gmail.com",
+      "password": "$2a$10$uoyIAyEIeh2iAWIbmsHSU.asRznN4cJZUcww18Ia7or6f2HdwkAT6",
+      "username": "admin",
+      "id": 4
+    },
+    {
+      "email": "admin123@gmail.com",
+      "password": "$2a$10$fjmew6xqC7hgZjD385J7VORo3.HBVcA.r/qGmJXmZrwsXqqQeTvzG",
+      "username": "admin123",
+      "id": 5
+    }
+  ]
 }
