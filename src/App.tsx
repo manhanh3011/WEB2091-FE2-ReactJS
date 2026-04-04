@@ -2,12 +2,13 @@ import { Toaster } from "react-hot-toast";
 import { Link, Route, Routes } from "react-router-dom";
 import EditForm from "./page/Lab6";
 import { useContext } from "react";
-import { UserContext } from "./context/UserContext";
 import { Button } from "antd";
 import { ConfigProvider, theme as antdTheme } from "antd";
 import { ThemeContext } from "./context/ThemeContext";
 import Register from "./page/Lab8";
 import { useAuthStore } from "./stores/useAuthStore";
+import StoryList from "./page/Lab5";
+import StoryForm from "./page/Lab4";
 
 function App() {
   const { user, logout } = useAuthStore();
@@ -76,6 +77,8 @@ function App() {
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB2091</h1>
         <Routes>
+          <Route path="/" element={<StoryList />}></Route>
+          <Route path="/add" element={<StoryForm />}></Route>
           <Route path="/edit/:id" element={<EditForm />}></Route>
           <Route path="/register" element={<Register />}></Route>
         </Routes>

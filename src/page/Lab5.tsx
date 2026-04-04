@@ -1,30 +1,12 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Button, Image, Popconfirm, Table } from 'antd';
-import axios from 'axios';
 import type { Story } from '../interface/Story';
-import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useCRUDStory } from '../hooks/useCRUDStory';
 
 function StoryList() {
     const nav = useNavigate();
 
-    const {data, isLoading} = useQuery({
-        queryKey: ["getAllStories"],
-        queryFn: async () => {
-            const res = await axios.get(`http://localhost:3000/stories`);
-            return res.data;
-        },
-    });
-
-    const qc = useQueryClient();
-    const {mutate} = useMutation({
-        mutationFn: async(id: string) => 
-            await axios.delete(`http://localhost:3000/stories/${id}`),
-            onSuccess: () => {
-                toast.success("Xoá thành công");
-                qc.invalidateQueries({queryKey: ["getAllStories"]});
-            }             
-    })
+    const {listStory, deleteStory} = useCRUDStory();
 
     const columns = [
         {title: "Tên truyện", dataIndex: "title"},
@@ -45,7 +27,7 @@ function StoryList() {
                         description="Bạn chắc chắn muốn xoá không?"
                         okText="Có"
                         cancelText="Không"
-                        onConfirm={() => mutate(record.id)}
+                        onConfirm={() => deleteStory.mutate(record.id)}
                     >
                         <Button danger>Xoá</Button>                   
                     </Popconfirm>
@@ -56,7 +38,7 @@ function StoryList() {
     ];
 
   return (
-        <Table columns={columns} dataSource={data} loading={isLoading} pagination={{pageSize: 5}} />
+        <Table columns={columns} dataSource={listStory} pagination={{pageSize: 5}} />
     )
 }
 

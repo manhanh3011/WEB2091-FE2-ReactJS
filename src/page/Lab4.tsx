@@ -4,9 +4,11 @@ import axios from "axios"
 import toast from 'react-hot-toast';
 import type { Category, Story } from '../interface/Story';
 import { useEffect, useState } from 'react';
+import { useCRUDStory } from '../hooks/useCRUDStory';
 
 
 function StoryForm() {
+    const {addStory} = useCRUDStory();
 
     const {mutate, isPending} = useMutation({
         mutationFn: async (values: Category) => {
@@ -17,18 +19,6 @@ function StoryForm() {
         },
         onError: () => {
             toast.error("Thêm danh mục thất bại");
-        },
-    });
-
-    const mutation = useMutation({
-        mutationFn: async (values: Story) => {
-            await axios.post(`http://localhost:3000/stories`, values)
-        },
-        onSuccess: () => {
-            toast.success("Thêm truyện thành công");
-        },
-        onError: () => {
-            toast.error("Thêm truyện thất bại");
         },
     });
 
@@ -56,7 +46,7 @@ function StoryForm() {
     };
 
     const onFinishAdd = (values: Story) => {
-        mutation.mutate(values);
+        addStory.mutate(values);
     }
   return (
     <div>
